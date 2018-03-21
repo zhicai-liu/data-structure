@@ -45,7 +45,7 @@ def kMeans(dataSet, k, distMeans =distEclud, createCent = randCent):
             clusterAssment[i,:] = minIndex,minDist**2   # 并将第i个数据点的分配情况存入字典
         print centroids
         for cent in range(k):   # 重新计算中心点
-            ptsInClust = dataSet[nonzero(clusterAssment[:,0].A == cent)[0]]   # 取第一列等于cent的所有列
+            ptsInClust = dataSet[nonzero(clusterAssment[:,0].A == cent)[0]]   # 取第一列等于cent的所有列；.A是将矩阵转换为数组。
             centroids[cent,:] = mean(ptsInClust, axis = 0)  # 算出这些数据的中心点
     return centroids, clusterAssment
 # --------------------测试----------------------------------------------------
